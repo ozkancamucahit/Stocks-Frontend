@@ -1,24 +1,18 @@
 
 
-import React, { SyntheticEvent, useState } from 'react'
+import React, { FormEvent, SyntheticEvent, useState } from 'react'
 
-interface Props {}
+interface Props {
+  onClick : (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  search: string | undefined;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-const Search : React.FC<Props> = (props: Props) : JSX.Element => {
-    const [Search, setSearch] = useState<string>("");
+const Search : React.FC<Props> = ({onClick, search, handleChange}: Props) : JSX.Element => {
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(e.target.value);
-        console.log('btn e :>> ', e);
-    }
-
-    
-    const onClick = (e : /*SyntheticEvent*/ React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      console.log('e :>> ', e);
-    }
   return (
     <div>
-        <input value={Search} placeholder='type to search' onChange={(e) => handleChange(e)}></input>
+        <input value={search} placeholder='type to search' onChange={(e) => handleChange(e)}></input>
         <button onClick={(e) => onClick(e)} title='Click' >TEXT</button>
     </div>
   )
