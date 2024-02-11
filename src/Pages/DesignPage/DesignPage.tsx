@@ -22,7 +22,7 @@ const DesignPage = (props: Props) => {
       <h2>place for design files schemas</h2>
 
       <RatioList data={testIncomeStatementData} config= {tableConfig}/>  
-      <Table />
+      <Table data={testIncomeStatementData} config={tableConfig}/>
     </>
   );
 }
