@@ -8,9 +8,10 @@ import {v4 as uuidv4} from 'uuid';
 interface Props {
   searchResults: CompanySearch[];
   onPortfolioCreate : (e : SyntheticEvent) => void;
+  showNoResults? : boolean;
 }
 
-const CardList: React.FC<Props> = ({searchResults, onPortfolioCreate}: Props) : JSX.Element => {
+const CardList: React.FC<Props> = ({searchResults, onPortfolioCreate, showNoResults}: Props) : JSX.Element => {
   return (
     <>
       {searchResults.length > 0 ? (
@@ -26,7 +27,7 @@ const CardList: React.FC<Props> = ({searchResults, onPortfolioCreate}: Props) : 
         })
       ) : (
         <p className="mb-3 mt-3 text-xl font-semibold text-center md:text-xl">
-          No results!
+          {showNoResults ? "No results!" : ""}
         </p>
       )}
     </>
